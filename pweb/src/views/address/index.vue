@@ -22,7 +22,7 @@
       <section class="actionBar">
         <div class="actionBarWrap">
           <div class="btrade" @click="addAddr">
-            <div class="btnadd"><span>+</span> 添加收获地址</div>
+            <div class="btnadd"><span>+</span> 添加收货地址</div>
           </div>
         </div>
       </section>
@@ -38,6 +38,10 @@ export default {
       list: [],
       isShow: false
     }
+  },
+  beforeRouteLeave (to, from, next) {
+    to.meta.keepAlive = false
+    next()
   },
   methods: {
     ...mapMutations([

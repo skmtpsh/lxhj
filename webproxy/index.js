@@ -2,7 +2,8 @@ const Koa = require('koa')
 const app = new Koa()
 
 app.use( async ( ctx ) => {
-  ctx.body = process.env.NODE_ENV
+  let url = ctx.request.url
+  ctx.body = url
 })
 // console.log(process.env.NODE_ENV)
 app.listen(3000)

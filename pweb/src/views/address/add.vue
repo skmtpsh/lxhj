@@ -3,8 +3,8 @@
     <form>
       <section class="group-wrap" style="padding: 0 10px;">
         <ul class="patten">
-          <li><div class="label">收货人</div><div class="inputwrap"><input type="text" v-model="recName" class="inputw" placeholder="请填写收获人" /></div></li>
-          <li><div class="label">手机号码</div><div class="inputwrap"><input type="text" v-model="recMobile" class="inputw" placeholder="请填写手机号码" /></div></li>
+          <li><div class="label">收货人</div><div class="inputwrap"><input type="text" v-model="recName" class="inputw" placeholder="请填写收货人" /></div></li>
+          <li><div class="label">手机号码</div><div class="inputwrap"><input maxlength="11" type="text" v-model="recMobile" class="inputw" placeholder="请填写手机号码" /></div></li>
           <li><div class="label">详细地址</div><div class="inputwrap"><input type="text" v-model="detailAddress" class="inputw" placeholder="请填写详细地址" /></div></li>
         </ul>
       </section>
@@ -71,7 +71,16 @@ export default {
         }, 2000)
         return false
       }
-      if (this.recMobile === '') {
+      let pattern = /^((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8}$/
+      if (!pattern.test(this.recMobile)) {
+        this.isMsg = true
+        this.msg = '手机号码格式有误'
+        setTimeout(() => {
+          this.isMsg = false
+        }, 2000)
+        return false
+      }
+      if (this.detailAddress === '') {
         this.isMsg = true
         this.msg = '详细地址不能为空'
         setTimeout(() => {
@@ -178,7 +187,8 @@ export default {
   width:30px;
   border-radius:18px;
   background:#fff;
-  transform:translateX(0px);
+  /* transform:translateX(0px); */
+  transform: translateX(-42px);
   transition: all .5s ease;
 }
 .swich.on .box{
@@ -186,7 +196,8 @@ export default {
   transition: all .5s ease;
 }
 .swich.on .box span{
-  transform:translateX(-42px);
+  /* transform:translateX(-42px); */
+  transform: translateX(0);
   transition: all .5s ease;
 }
 .bgalert.show  {
