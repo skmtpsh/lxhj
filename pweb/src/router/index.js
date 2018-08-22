@@ -62,7 +62,7 @@ export const constRouterMap = [
 ]
 
 export default new Router({
-  scrollBehavior: () => ({ y: 0 }),
+  // scrollBehavior: () => ({ y: 0 }),
   // mode: 'history',
   base: '/',
   routes: constRouterMap

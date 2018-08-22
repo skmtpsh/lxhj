@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <section class="group-wrap" v-if="isShow">
+    <section class="group-wrap" v-if="list.length > 0">
       <ul class="list">
         <li v-for="(item, index) in list" v-bind:key="index">
           <div class="left" @click="getAddr(item)">
@@ -15,7 +15,7 @@
         </li>
       </ul>
     </section>
-    <section v-if="!isShow">
+    <section v-if="list.length === 0">
       <div class="noinfo"></div>
     </section>
     <section class="actionBar-bg">
@@ -39,10 +39,10 @@ export default {
       isShow: false
     }
   },
-  beforeRouteLeave (to, from, next) {
-    to.meta.keepAlive = false
-    next()
-  },
+  // beforeRouteLeave (to, from, next) {
+  //   to.meta.keepAlive = false
+  //   next()
+  // },
   methods: {
     ...mapMutations([
       'setAddr',
@@ -56,6 +56,8 @@ export default {
       if (this.qry.type >= 0) { // 1.我的页面里的地址列表调用不能跳转. 2. 确认订单页面页面要跳转
         this.setAddr(item)
         this.$router.push({path: `/order/confirm`, query: this.qry}) // 跳转到确认订单
+      } else {
+        return false
       }
     },
     editAddr (id, item) {

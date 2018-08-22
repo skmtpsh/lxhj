@@ -52,7 +52,8 @@ export default {
   methods: {
     goAddr () {
       // {token: this.$route.query.token, userid: this.$route.query.userid}
-      this.$router.push({path: '/addr', query: this.qry}) // 跳转到地址列表
+      this.$router.replace({path: '/addr', query: this.qry}) // 跳转到地址列表
+      // this.$router.push({path: '/addr', query: this.qry}) // 跳转到地址列表
     },
     saveAddr () {
       if (this.recName === '') {

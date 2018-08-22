@@ -151,11 +151,11 @@
 export default {
   data () {
     return {}
-  },
-  beforeRouteLeave (to, from, next) {
-    to.meta.keepAlive = true
-    next()
   }
+  // beforeRouteLeave (to, from, next) {
+  //   to.meta.keepAlive = true
+  //   next()
+  // }
 }
 </script>
 <style scoped>
