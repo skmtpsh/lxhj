@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+<div class="page">
 <div style="text-align:center;">设备租赁协议</div>
 <div style="margin:10px 0;">租赁协议编号：</div>
 <div style="margin:10px 0;">生效日期：</div>
@@ -152,13 +152,12 @@ export default {
   data () {
     return {}
   }
-  // beforeRouteLeave (to, from, next) {
-  //   to.meta.keepAlive = true
-  //   next()
-  // }
 }
 </script>
 <style scoped>
+body ,html {
+  background: #fff;
+}
 .page {
   padding: 20px;
   text-indent: 2em;
