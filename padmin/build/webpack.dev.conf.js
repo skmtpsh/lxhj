@@ -57,6 +57,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true,
       title: 'admin',
+      ico: './favicon.png',
       path: config.dev.assetsPublicPath + config.dev.assetsSubDirectory      
     }),
     // copy custom static assets
