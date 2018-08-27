@@ -1,14 +1,18 @@
 <template>
   <section class="content">
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item><a href="/">主页面板</a></el-breadcrumb-item>
-    </el-breadcrumb>
+    <bread-nav></bread-nav>
+    <main class="pgcontent">
+      <router-view />
+    </main>
   </section>
 </template>
 <script>
+import BreadNav from '@/views/layout/components/BreadNav'
 export default {
   name: 'MainApp',
+  components: {
+    BreadNav
+  },
   data () {
     return {}
   }

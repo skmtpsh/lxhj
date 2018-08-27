@@ -1,12 +1,12 @@
 @import './mixin.scss';
 @import './transition.scss';
-@import './sidebar.scss';
+@import './variables.scss';
 
 $height: 60px;
 
 body {
   height: 100%;
-  background: #eff3f6;
+  background: $fff;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -99,17 +99,12 @@ div:focus{
   top: 0;
   bottom: 0;
   margin-top: $height;
-  background: #fff;
+  background: #eff3f6;
   .el-menu {
     border-right: 0 none;
     background: 0 none;
     color: #fff;
   }
-}
-
-.content {
-  padding: 20px 10px 20px 250px;
-  background: #fff;
 }
 
 .headerWrapper {
@@ -126,7 +121,7 @@ div:focus{
     width: 100%;
     line-height: $height;
     z-index: 100;
-    background-color: #fff;
+    background-color: $primary;
     position: relative
   }
   .logo {
@@ -134,6 +129,7 @@ div:focus{
     width: 240px;
     height: $height;
     text-align: center;
+    color: $fff;
   }
   .topheader {
     margin-left: 240px;
@@ -186,5 +182,15 @@ div:focus{
 
 .appLayout {
   height: 100%;
+}
+
+.content {
+  // padding-left: 240px;
+  padding: 10px 10px 10px 250px;
+}
+
+.pgcontent {
+  padding: 10px;
   background: #fff;
+  margin-top: 10px;
 }

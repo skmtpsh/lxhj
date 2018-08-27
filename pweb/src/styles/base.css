@@ -18,8 +18,8 @@ body,html {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-* {
-  /* -webkit-overflow-scrolling: touch; */
+body {
+  /* -webkit-overflow-scrolling: touch;  overflow: auto;*/
 } 
 table {
   border-collapse: collapse;

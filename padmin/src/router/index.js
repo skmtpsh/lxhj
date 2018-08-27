@@ -20,6 +20,18 @@ export const constantRouterMap = [
         meta: { title: 'dashboard', icon: 'dashboard', noCache: true }
       }
     ]
+  },
+  {
+    path: '/example',
+    component: Layout,
+    children: [
+      {
+        path: 'io',
+        component: () => import('@/views/example/io'),
+        name: 'Io',
+        meta: { title: 'websoket', icon: 'websoket' }
+      }
+    ]
   }
 ]
 export default new Router({

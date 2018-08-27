@@ -4,17 +4,16 @@
       <div class="logo">PAdmin 管理系统</div>
       <div class="topheader">
         <ul class="headernav">
-          <li>
-            <el-input placeholder="请输入内容" class="input-with-select">
-            </el-input>
-          </li>
+          <li></li>
           <li>
             <el-menu
+              background-color="#409EFF"
               menu-trigger="click"
+              text-color="#fff"
               mode="horizontal">
               <el-submenu index="2" popper-class="popclass">
-                <template slot="title"><i class="el-icon-service"></i> Admin</template>
-                <el-menu-item index="2-1">用户信息</el-menu-item>
+                <template slot="title"><i class="el-icon-service" style="color:#fff"></i> Admin</template>
+                <el-menu-item index="2-1">设置</el-menu-item>
                 <el-menu-item index="2-2">退出</el-menu-item>
               </el-submenu>
             </el-menu>
