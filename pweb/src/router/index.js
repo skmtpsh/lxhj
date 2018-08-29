@@ -26,7 +26,10 @@ export const constRouterMap = [
   },
   {
     path: '/order/confirm',
-    component: () => import('@/views/order/orderConfirm')
+    component: () => import('@/views/order/orderConfirm'),
+    meta: {
+      keepAlive: true // 需要被缓存
+    }
   },
   {
     path: '/order/detail',
@@ -43,11 +46,23 @@ export const constRouterMap = [
   {
     path: '/addr/add/:id',
     component: () => import('@/views/address/add')
+  },
+  {
+    path: '/protol',
+    component: () => import('@/views/protol/index')
+  },
+  {
+    path: '/about',
+    component: () => import('@/views/about/index')
+  },
+  {
+    path: '/protol/log',
+    component: () => import('@/views/protol/login')
   }
 ]
 
 export default new Router({
-  scrollBehavior: () => ({ y: 0 }),
+  // scrollBehavior: () => ({ y: 0 }),
   // mode: 'history',
   base: '/',
   routes: constRouterMap

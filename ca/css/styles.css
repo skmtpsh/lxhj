@@ -1,0 +1,71 @@
+/* CSS Document */
+.jsyh { width:95%; height:100px; margin:10px auto; border-radius:10px; background:#1a66a4;}
+.cash_all { width:100%; background: #fff; margin-top: 15px;}
+.cash_box { width:100%; padding: 36px 0 25px 0; text-align: center;}
+
+.cash_box h3
+{
+	display: block; 
+	font-size: 1.1em!important;
+	-webkit-margin-before: 0px;
+	-webkit-margin-after: 0px;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: normal;
+}
+.cash_box p{
+	color: #fe585a;
+	font-size: 2.2em;
+	font-weight: bold;
+}
+
+.tag 
+{
+	padding: 10px 0;
+	text-align: center;
+	background: #ff7c7c; 
+	line-height: 24px; 
+	font-size: 0.9em; 
+	color: #fff;
+}
+
+
+
+@media ( max-width:320px) 
+{
+.tag 
+{
+	padding: 10px 0;
+	text-align: center;
+	background: #ff7c7c; 
+	line-height: 24px; 
+	font-size: 0.6em; 
+	color: #fff;
+}
+}
+#submitContact{
+	color: #fff!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <section class="group-wrap">
-      <template v-if="isShow">
+      <template v-if="addr.length > 0 ">
         <ul class="addr">
           <li v-for="(item, index) in addr" v-bind:key="index" @click="selAddr">
             <div class="addrinfo">
@@ -11,7 +11,7 @@
           </li>
         </ul>
       </template>
-      <template v-if="!isShow">
+      <template v-if="addr.length === 0 ">
         <div class="blankaddr" @click="gotoHandle">
           + 请添加收获地址
         </div>
@@ -36,7 +36,12 @@
     </section>
     <section class="group-wrap" style="padding: 0 10px;">
       <ul class="patten">
-        <li><div class="label" style="width:50px;">备注</div><div class="inputwrap"><input type="text" v-model="note" class="inputw" placeholder="填写内容与客服协商确认" /></div></li>
+        <li>
+          <div class="label" style="width:50px;">备注</div>
+          <div class="inputwrap">
+            <input type="text" autocomplete="off" v-model="note" class="inputw" placeholder="填写内容与客服协商确认" />
+          </div>
+        </li>
         <li><div class="label">支付方式</div><div class="inputwrap">分期付款</div></li>
         <li><div class="label">配送方式</div><div class="inputwrap">普通快递</div></li>
       </ul>
@@ -46,6 +51,12 @@
       <p class="pricewrap"><span class="tit">月供</span><span class="price">¥<em>{{detail.monthAmount}}</em>/月</span></p>
       <p class="pricewrap"><span class="tit">保险服务费</span><span class="price">¥<em>{{(detail.monthAmount*detail.code - detail.amount).toFixed(2)}}</em></span></p>
       <p class="pricewrap"><span class="tit">运费</span><span class="price">¥<em>0.00</em></span></p>
+    </section>
+    <section class="group-wrap" style="background: none;">
+      <span class='checkbox'>
+        <input type='checkbox' id='checkbox' v-model="protol"><label for='checkbox'></label>
+      </span>
+      <span style="color:#ff5b06">我已阅读并同意<span @click="gotoProtol">《设备租赁协议》</span></span>
     </section>
     <section class="actionBar-bg">
       <section class="actionBar">
@@ -78,6 +89,7 @@ import * as orderApi from '@/api/order'
 import LocalStorage from 'localStorage'
 import { mapGetters } from 'vuex'
 export default {
+  name: 'orderconfirm',
   data () {
     return {
       detail: {},
@@ -88,7 +100,8 @@ export default {
       isAddr: false, // 添加地址对话框是否出现
       isAlert: false, // alert对话框是否出现
       isShow: false, // 判断地址添加地址方法是否出现
-      msg: ''
+      msg: '',
+      protol: true
     }
   },
   computed: {
@@ -97,7 +110,18 @@ export default {
     ])
   },
   methods: {
+    gotoProtol () {
+      this.$router.push({path: '/protol'})
+    },
     submitOrder () {
+      if (!this.protol) {
+        this.isAlert = true
+        this.msg = '请选择协议'
+        setTimeout(() => {
+          this.isAlert = false
+        }, 2000)
+        return false
+      }
       // console.log(this.$route.query)
       // console.log(this.addr)
       if (this.addr.length === 0) {
@@ -160,6 +184,10 @@ export default {
       this.$router.push({path: '/addr/add', query: this.qry}) // 没有地址跳转到地址列表
     }
   },
+  // watch: {
+  //   '$route' (to, from) {
+  //   }
+  // },
   created () {
     // console.log(this.$route.query)
     this.qry = this.$route.query
@@ -178,8 +206,8 @@ export default {
       })
       // console.log(this.img)
     } else {
-      this.$router.go(-1)
-      return false
+      // this.$router.go(-1)
+      // return false
       // this.detail = {}
       // this.img = []
     }
@@ -218,6 +246,67 @@ export default {
 <style scoped>
 .page {
   padding-top: 10px;
+}
+.checkbox {
+  position: relative;
+}
+
+.checkbox input[type='checkbox'] {
+  /* position: absolute;
+  left: 0;
+  top: 0; */
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+
+.checkbox label {
+  position: relative;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.checkbox label:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  /* transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease; */
+}
+
+.checkbox label:after {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: 0;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background: #fff;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  /* transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease; */
+}
+
+.checkbox input[type='checkbox']:checked+label:before {
+  background: #ff5b06;
+  border-color: #ff5b06;
+}
+
+.checkbox input[type='checkbox']:checked+label:after {
+  background: #ff5b06;
 }
 .blankaddr {
   height: 80px;
@@ -320,8 +409,8 @@ export default {
 .addr li:after {
   content: "";
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
   border-top: 1px solid #ccc;
   border-left: 1px solid #ccc;
   -webkit-transform-origin: 50%;
@@ -406,7 +495,7 @@ export default {
 .inputw {
   display: block;
   width: 100%;
-  font-size: 14px;
+  font-size: 16px;
   height: 50px;
   line-height: 50px;
   border: none;
@@ -414,6 +503,7 @@ export default {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 .patten {
   margin: 10px 0 0;

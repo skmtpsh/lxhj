@@ -1,0 +1,196 @@
+@import './mixin.scss';
+@import './transition.scss';
+@import './variables.scss';
+
+$height: 60px;
+
+body {
+  height: 100%;
+  background: $fff;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+html, body {
+  padding: 0;
+  margin: 0;  
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+#app {
+  height: 100%;
+  overflow-y: hidden;
+}
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus{
+  outline: none;
+ }
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.text-center {
+  text-align: center
+}
+.sidebar {
+  &:after {
+    display: block;
+    // content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  &:after {
+    background: #FFA534;
+    background: -moz-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, rgba(236, 22, 87, 0.7)));
+    background: -webkit-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -o-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -ms-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: linear-gradient(to bottom, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background-size: 150% 150%;
+  }  
+  width: 240px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  margin-top: $height;
+  background: #eff3f6;
+  .el-menu {
+    border-right: 0 none;
+    background: 0 none;
+    color: #fff;
+  }
+}
+
+.headerWrapper {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1500;
+  border-bottom: 1px solid #f5f5f5;
+  .header {
+    height: $height;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: $height;
+    z-index: 100;
+    background-color: $primary;
+    position: relative
+  }
+  .logo {
+    float: left;
+    width: 240px;
+    height: $height;
+    text-align: center;
+    color: $fff;
+  }
+  .topheader {
+    margin-left: 240px;
+    height: $height;
+  }
+  .headernav {
+    float: right;
+  }
+  .headernav li {
+    margin: 0;
+    float: left;
+    list-style: none;
+    position: relative;
+    cursor: pointer
+  }
+  .el-menu--horizontal {
+    border-bottom: 0 none;
+  }  
+}
+
+.page-component {
+  height: calc(100% - 60px);
+  margin-top: 60px;
+}
+
+//reset element-ui css
+.horizontal-collapse-transition {
+  transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+}
+
+.scrollbar-wrapper {
+  overflow-x: hidden!important;
+  height: 100%;
+}
+
+.el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.is-horizontal {
+  display: none;
+}
+
+.mainWrapper {
+  padding: 0;
+  margin-top: 0;
+  height: 100%;
+  min-height: auto
+}
+
+.appLayout {
+  height: 100%;
+}
+
+.content {
+  // padding-left: 240px;
+  padding: 10px 10px 10px 250px;
+}
+
+.pgcontent {
+  padding: 10px;
+  background: #fff;
+  margin-top: 10px;
+}

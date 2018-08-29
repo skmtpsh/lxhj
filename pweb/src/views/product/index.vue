@@ -232,6 +232,9 @@ export default {
 }
 </script>
 <style scoped>
+.page {
+  /* -webkit-overflow-scrolling: touch; */
+}
 .ggstep {
   padding: 30px;
   display: -webkit-box!important;
@@ -252,7 +255,7 @@ export default {
   content: " ";
   position: absolute;
   right: -6px;
-  top: 25px;
+  top: 16px;
   width: 0;
   height: 0;
   overflow: hidden;
