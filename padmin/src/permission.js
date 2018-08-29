@@ -4,16 +4,22 @@ import 'nprogress/nprogress.css'// progress bar style
 
 NProgress.configure({ showSpinner: false })
 router.beforeEach((to, from, next) => {
+  console.log(1)
   NProgress.start()
-  if ('token') {
-    if (to.path === '/login') {
-      next({ path: '/' })
-      NProgress.done
-    } else {
+  let a = 'token'
+  if (a === 'token') {
+    next()
 
-    }
+    // if (to.path === '/login') {
+    //   next({ path: '/' })
+    //   // NProgress.done()
+    // } else {
+
+    // }
   }
 })
+
 router.afterEach(() => {
+  console.log(2)
   NProgress.done() // finish progress bar
 })

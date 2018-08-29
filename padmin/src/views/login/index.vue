@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <el-form ref="form" class="login-form" :model="loginForm" :rules="loginRules">
+    <el-form ref="loginForm" class="login-form" :model="loginForm" :rules="loginRules">
       <h3 class="text-center">PAdmin</h3>
       <el-form-item prop="username">
         <el-input
@@ -19,6 +19,7 @@
           type="password"
           auto-complete="on"
         />
+        <send-sms :isDisabled="smsDisabled"></send-sms>
       </el-form-item>
       <!-- <el-form-item prop="proto">
         <el-checkbox label="同意此协议" v-model="loginForm.proto" name="proto"></el-checkbox>
@@ -33,9 +34,14 @@
   </div>
 </template>
 <script>
+import SendSms from '@/components/sendsms'
 export default {
+  components: {
+    SendSms
+  },
   data () {
     return {
+      smsDisabled: false,
       loginForm: {
         username: '',
         password: '',
@@ -57,12 +63,13 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
-            this.loading = false
-            this.$router.push({ path: '/' })
-          }).catch(() => {
-            this.loading = false
-          })
+          this.$router.push({ path: '/' })
+          // this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
+          //   this.loading = false
+          //   this.$router.push({ path: '/' })
+          // }).catch(() => {
+          //   this.loading = false
+          // })
         } else {
           console.log('error submit!!')
           return false

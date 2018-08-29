@@ -1,0 +1,122 @@
+body{
+    background-color: #f5f5f5;
+}
+.box {
+    width: 100%;
+    min-height: 100px;
+    border: 1px dashed #eeeeee;
+    margin: 20px 0;
+    position: relative;
+    text-align: center;
+    height: 226px;
+    border-radius: 6px;
+	background-color:#fff;
+}
+
+.popup {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup > div {
+    padding: 10px 0;
+    border: 1px solid black;
+}
+
+.loading {
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(0, 0%, 20%, 0.8);
+
+}
+
+.comparing {
+    text-align: center;
+}
+
+.comparing:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+}
+
+.info-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.first-options > div, .second-options > div {
+    cursor: pointer;
+    padding: 0.9rem;
+    background-color: #fff;
+    color: #000;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-body img {
+    width: 50%;
+    height: 224px;
+    border-radius: 50%;
+    max-width: 300px;
+    max-height: 260px;
+    max-width: 100%;
+    max-height: 40vh;
+}
+.headerLeft{
+    border: none;
+    color: #fff;
+    width: 49%;
+    padding: 6px;
+    border-radius: 6px;
+    outline: none;
+}
+.active{
+   background-color: #ff8031;
+}
+.idcard{
+    background-image: url("/img/authentication/front.png");
+    background-size: cover;
+    height: 226px;
+    border: none;
+    min-height: 226px;
+}
+.video-container{
+    background-image: url("/img/authentication/back.png");
+    background-size: cover;
+    height: 226px;
+    border: none;
+    min-height: 226px;
+}
+#startCompare{
+    border: none;
+    background-color: #1d7ffe;
+    width: 85%;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 0 auto;
+    display: block;
+    color: #fff;
+    outline: none;
+}
+.name{
+    border: none;
+    outline: none;
+    background-color: #eeeeee;
+    width: 90%;
+    padding: 0.6rem;
+    margin-bottom: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
