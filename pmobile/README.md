@@ -17,7 +17,9 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-vscode 安装px to rem
+vscode 安装px to rem插件  750px的设计图 配置："px-to-rem.px-per-rem": 75
+
+vm配置
 参考 https://www.w3cplus.com/mobile/vw-layout-in-vue.html
 #
 ```
