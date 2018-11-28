@@ -1,0 +1,212 @@
+@import './mixin.scss';
+@import './transition.scss';
+@import './variables.scss';
+
+$height: 60px;
+
+body {
+  font-size: 14px;
+  height: 100%;
+  background: $fff;
+  font-family:  Helvetica, Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+html, body {
+  padding: 0;
+  margin: 0;  
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+#app {
+  height: 100%;
+  overflow-y: hidden;
+}
+.no-padding {
+  padding: 0px !important;
+}
+
+.padding-content {
+  padding: 4px 0;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus{
+  outline: none;
+ }
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.text-center {
+  text-align: center
+}
+.sidebar {
+  &:after {
+    display: block;
+    // content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  &:after {
+    background: #FFA534;
+    background: -moz-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, rgba(236, 22, 87, 0.7)));
+    background: -webkit-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -o-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: -ms-linear-gradient(top, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background: linear-gradient(to bottom, #FFA534 0%, rgba(236, 22, 87, 0.7) 100%);
+    background-size: 150% 150%;
+  }  
+  width: 200px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #181f24;
+  z-index: 1501;
+  // margin-top: $height; 
+  // z-index: 1449;
+  .el-menu {
+    border-right: 0 none;
+    background: 0 none;
+    color: #fff;
+  }
+}
+
+.headerWrapper {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1500;
+  .header {
+    height: $height;
+    top: 0;
+    left: 0;
+    width: 100%;
+    // line-height: $height;
+    z-index: 100;
+    background-color: $bgfff;
+    position: relative
+  }
+  .logo {
+    float: left;
+    height: $height;
+    text-align: center;
+    color: $fff;
+    img {
+      margin: 10px 0 0 20px
+    }
+  }
+  .topheader {
+    margin-left: 240px;
+    margin-right: 220px;
+    height: $height;
+  }
+  .headernav {
+    float: right;
+  }
+  .headernav li {
+    margin: 0;
+    float: left;
+    list-style: none;
+    position: relative;
+    padding: 16px 20px;
+  }
+  .el-menu--horizontal {
+    border-bottom: 0 none;
+  }
+}
+
+.page-component {
+  height: calc(100% - 60px);
+  margin-top: 60px;
+}
+
+//reset element-ui css
+.horizontal-collapse-transition {
+  transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+}
+
+.scrollbar-wrapper {
+  overflow-x: hidden!important;
+  height: 100%;
+}
+
+.el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+.is-horizontal {
+  display: none;
+}
+
+.mainWrapper {
+  padding: 0;
+  margin-top: 0;
+  height: 100%;
+  min-height: auto;
+  background-color: #f2f4f8;
+}
+
+.appLayout {
+  height: 100%;
+}
+
+.content {
+  // padding: 20px 220px 20px 20px;
+  padding: 20px 200px 20px 0px;
+  color: #232323
+}
+
+.pgcontent {
+  // padding: 19px 10px 10px;
+  padding: 19px 0px 10px;
+}
+.lists {
+  background: #e2e2e2;
+  padding: 5px;
+  border-radius: 5px;
+  color: #666;
+  margin: 5px 0
+}
+
+ul, dl, dd{
+  margin: 0;
+  padding: 0;
+}
